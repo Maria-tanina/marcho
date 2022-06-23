@@ -353,6 +353,9 @@
   }
 
   .popup-fashion {
+    background-image: url(../images/fashion-bg.svg);
+    @extend %bg-img;
+    background-position: top center;
     background-color: #f6f6f6;
     padding: 120px 0;
     &__inner {
@@ -395,7 +398,120 @@
 
   }
 
+  .product {
+    text-align: center;
+    padding: 120px 0;
+    &__text {
+        max-width: 563px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 30px 45px;
+    }
+    &-item {
+        max-width: 370px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__img-box {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 26px;
+        }
+        &__images {
+            object-fit: cover;
+        }
+    }
+    &-item__img-box:hover .product-item__link-box{
+        transform: translateY(0%);
+    }
+    &-item__link-box {
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: 50px;
+        background-color: #fff;
+        width: 220px;
+        height: 50px;
+        margin: 0 auto;
+        box-shadow: 0px 5px 30px 0px rgba(152, 152, 152, 0.2);
+        border-radius: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateY(300%);
+        transition: all .5s;
+    }
+    &-item__link--line::before, 
+    &-item__link--line::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color: #ececec;
+        top: 10px;
+    }
+     &-item__link--line::before {
+        left: 70px;
+     }
+     &-item__link--line::after{
+        right: 70px;
+     }
+     &-item__link {
+        display: block;
+     }
+     &-item__link path {
+        transition: all .3s;
+     }
+     &-item__link:hover path {
+        fill: $accent;
+     }
+     &-item__name {
+        @extend %roboto-400;
+        line-height: 36px;
+        padding: 15px 0;
+     }
+     &-item__price {
+        @extend %roboto-400;
+        font-size: 22px;
+        line-height: 26px;
+        display: flex;
+        justify-content: center;
+     }
+     &-item__old-price {
+        color: #ccccce;
+        margin-left: 20px;
+        text-decoration: line-through;
+     }
+     &__link {
+        padding: 15px 25px;
+        border: 1px solid $accent;
+        display: inline-block;
+        text-transform: uppercase;
+        @extend %roboto-400;
+        color: $default;
+        font-size: 22px;
+        line-height: 26px;
+        margin-top: 55px;
+     }
+     &-item--sale {
+        .product-item__img-box::before {
+            content: 'SALE';
+            @extend %btn;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            padding: 4px 10px;
+        }
+     }
+     
+  }
 
+  
 
 
 
