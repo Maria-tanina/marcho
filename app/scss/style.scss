@@ -235,8 +235,11 @@
         margin-bottom: 40px;
         @extend %quicksand-500;
         color: $paragraf;
+        &--password {
+            margin-bottom: 30px;
+        }
         &-checkbox {
-            margin: 60px 0 20px;
+            margin-bottom: 20px;
 
         }
     }
@@ -258,15 +261,21 @@
         padding: 20px 0;
         color: #fff;
         margin-bottom: 20px;
+        @extend %roboto-400;
     }
     &__error {
         color: $accent;
         @extend %quicksand-500;
     }
+    &__text {
+        @extend %quicksand-500;
+        line-height: 26px;
+        color: $paragraf;
+        p {
+            margin-bottom: 30px;
+        }
+    }
 }
-
-
-
 
 
 
