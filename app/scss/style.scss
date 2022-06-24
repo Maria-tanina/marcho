@@ -277,6 +277,30 @@
     }
 }
 
+.page-404 {
+    padding: 120px 0;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+    }
+    &__title {
+        color: #28384f;
+        text-align: start;
+    }
+    &__text {
+        max-width: 481px;
+        margin-bottom: 60px;
+    }
+    &-btn {
+        @extend %btn;
+        display: inline-block;
+    }
+}
+
+
+
+
 
 
 
