@@ -33,10 +33,10 @@
 
     &__list-link:hover {
         color: $accent;
+        border-bottom: 1px solid $accent;
     }
 
     &__list-link--active {
-        border-bottom: 1px solid $accent;
         color: $accent;
         @extend %roboto-700;
     }

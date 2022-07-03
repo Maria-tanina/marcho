@@ -6,7 +6,8 @@ const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
 const del = require('del');
-const ts = require('gulp-typescript');
+const nunjucksRender = require('gulp-nunjucks-render');
+
 
 function browsersync() {
     browserSync.init({
@@ -16,6 +17,13 @@ function browsersync() {
         notofy: false
     })
 }
+function nunjucks() {
+    return src('app/*.njk')
+    .pipe(nunjucksRender())
+    .pipe(dest('app'))
+}
+
+
 function build(){
     return src([
         'app/**/*.html',
@@ -71,14 +79,16 @@ function scripts() {
 function watching (){
     watch(['app/scss/**/*.scss'], styles);
     watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+    watch(['app/*.njk'], nunjucks);
     watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.nunjucks = nunjucks;
 exports.browsersync = browsersync;
 exports.watching = watching;
 exports.images = images;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build)
-exports.default = parallel(styles, scripts, browsersync, watching); 
+exports.default = parallel(styles,nunjucks, scripts, browsersync, watching); 
