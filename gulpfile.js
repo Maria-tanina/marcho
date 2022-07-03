@@ -6,6 +6,7 @@ const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
 const del = require('del');
+const ts = require('gulp-typescript');
 
 function browsersync() {
     browserSync.init({
@@ -69,7 +70,7 @@ function scripts() {
 }
 function watching (){
     watch(['app/scss/**/*.scss'], styles);
-    watch(['app/js/**/*.js','!app/js/main.min.js'], scripts);
+    watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
     watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
