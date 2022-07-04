@@ -1,4 +1,5 @@
 $(function(){
+ 
 
   $('.standard__content-slider').slick({
     prevArrow: '<button type="button" class="slick-prev"><img src="images/icons/angle-left-slider.svg"></button>',
