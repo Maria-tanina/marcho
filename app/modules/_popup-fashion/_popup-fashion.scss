@@ -1,0 +1,52 @@
+.popup-fashion {
+    background-image: url(../images/fashion-bg.svg);
+    @extend %bg-img;
+    background-position: top center;
+    background-color: #f6f6f6;
+    padding: 120px 0;
+
+    &__inner {
+        display: flex;
+    }
+
+    &__video {
+        margin-right: 60px;
+        @extend %bg-img;
+        max-width: 536px;
+        width: 100%;
+        height: 478px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__content {
+        max-width: 570px;
+        align-self: center;
+    }
+
+    &__subtitle {
+        @extend %quicksand-500;
+        font-size: 22px;
+        line-height: 26px;
+        color: $accent;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        margin-bottom: 35px;
+        text-align: start;
+
+    }
+
+    &__text {
+        margin-bottom: 60px;
+
+    }
+
+    &__link {
+        padding: 18px 30px;
+        @extend %btn;
+    }
+
+}

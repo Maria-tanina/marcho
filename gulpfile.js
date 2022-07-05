@@ -7,6 +7,7 @@ const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
 const del = require('del');
 const nunjucksRender = require('gulp-nunjucks-render');
+const rename = require('gulp-rename');
 
 
 function browsersync() {
@@ -15,6 +16,7 @@ function browsersync() {
             baseDir: "app/"
         },
         notofy: false
+        
     })
 }
 function nunjucks() {
@@ -51,9 +53,12 @@ function images(){
     .pipe(dest('dist/images'))
 }
 function styles() {
-    return src('app/scss/style.scss')
+    return src('app/scss/*.scss')
     .pipe(scss({outputStyle: 'compressed'}))
-    .pipe (concat('style.min.css'))
+    .pipe(rename({
+        suffix: '.min'
+    }))
+
     .pipe(autoprefixer({
         overrideBrowserslist: ['last 10 versions'],
         grid:true
@@ -77,7 +82,7 @@ function scripts() {
     .pipe(browserSync.stream())
 }
 function watching (){
-    watch(['app/scss/**/*.scss'], styles);
+    watch(['app/**/*.scss'], styles);
     watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
     watch(['app/*.njk'], nunjucks);
     watch(['app/**/*.html']).on('change', browserSync.reload);

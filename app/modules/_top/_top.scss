@@ -1,0 +1,18 @@
+.top {
+    &__container {
+        max-width: 1700px;
+        margin: 0 auto;
+        @extend %bg-img;
+        background-position: top center;
+        padding: 120px 0 130px;
+        text-align: center;
+    }
+
+    &__title {
+        @extend %roboto-400;
+        font-size: 48px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+
+    }
+}
