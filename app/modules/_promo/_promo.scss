@@ -1,0 +1,118 @@
+.promo {
+    background-image: url(../images/promo-bg.jpg);
+    @extend %bg-img;
+    background-position: center center;
+    padding: 150px 0 160px;
+    text-align: center;
+
+    &__inner {
+        width: 570px;
+        max-width: 100%;
+        margin-left: auto;
+    }
+
+    &__subtitle {
+        color: $accent;
+        font-size: 22px;
+        line-height: 26px;
+        margin-bottom: 25px;
+    }
+
+    &__title {
+        margin-bottom: 50px;
+    }
+
+    &__link {
+        padding: 15px 25px;
+        border: 1px solid $accent;
+        display: inline-block;
+        text-transform: uppercase;
+        @extend %roboto-400;
+        color: $default;
+        font-size: 16px;
+        line-height: 26px;
+        margin-top: 55px;
+    }
+
+}
+.promo__clock {
+    display: flex;
+    justify-content: space-between;
+
+    &-item {
+        background-color: #fff;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0px 10px 40px 0px rgba(187, 187, 187, 0.3);
+
+        span {
+            font-size: 48px;
+            @extend %roboto-700;
+            color: $default;
+        }
+    }
+}
+
+.promo__text {
+    @extend %quicksand-500;
+    color: $paragraf;
+    line-height: 26px;
+}
+
+
+
+@media(max-width:1200px) {
+    .promo {
+        background-position: center left;
+        padding: 100px 0 100px;
+    }
+}
+
+@media(max-width:950px) {
+    .promo {
+        background-image: none;
+        background-color: #f6f6f6;
+        &__inner {
+            width: 100%;
+        }
+        &__clock {
+            justify-content: center;
+        }
+        &__clock-item {
+            margin: 10px;
+        }
+
+    }
+}
+
+@media(max-width:600px) {
+    .promo {
+        &__clock {
+            flex-wrap: wrap;
+        }
+        &__clock-item {
+            margin: 20px 35px;
+        }
+        
+
+    }
+}
+
+@media(max-width:440px) {
+    .promo {
+        
+        &__clock-item {
+            margin: 8px 8px;
+        }
+        &__link {
+            margin-top: 30px;
+        }
+        
+
+    }
+}

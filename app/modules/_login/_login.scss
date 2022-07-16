@@ -1,0 +1,83 @@
+
+.modal {
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 115px 0;
+
+    &__links {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__link {
+        text-transform: uppercase;
+        font-size: 22px;
+        @extend %roboto-400;
+        padding: 0 35px;
+
+        &--active {
+            color: $accent;
+        }
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 40px;
+        @extend %quicksand-500;
+        color: $paragraf;
+
+        &--password {
+            margin-bottom: 30px;
+        }
+
+        &-checkbox {
+            margin-bottom: 20px;
+
+        }
+    }
+
+    &__input {
+        padding: 0 15px;
+        margin-top: 10px;
+        display: block;
+        width: 100%;
+        height: 60px;
+        border: none;
+        background-color: #f6f6f6;
+    }
+
+    &__btn {
+        display: block;
+        width: 100%;
+        text-transform: uppercase;
+        background-color: #292929;
+        border: none;
+        padding: 20px 0;
+        color: #fff;
+        margin-bottom: 20px;
+        @extend %roboto-400;
+    }
+
+    &__error {
+        color: $accent;
+        @extend %quicksand-500;
+    }
+
+    &__text {
+        @extend %quicksand-500;
+        line-height: 26px;
+        color: $paragraf;
+
+        p {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+
+@media(max-width:360px){
+    .modal__link {
+        padding: 0 25px;
+    }
+}

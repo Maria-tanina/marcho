@@ -6,15 +6,26 @@ const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
 const del = require('del');
+const nunjucksRender = require('gulp-nunjucks-render');
+const rename = require('gulp-rename');
+
 
 function browsersync() {
     browserSync.init({
         server: {
             baseDir: "app/"
         },
-        notofy: false
+        notify: false
+        
     })
 }
+function nunjucks() {
+    return src('app/*.njk')
+    .pipe(nunjucksRender())
+    .pipe(dest('app'))
+}
+
+
 function build(){
     return src([
         'app/**/*.html',
@@ -42,9 +53,12 @@ function images(){
     .pipe(dest('dist/images'))
 }
 function styles() {
-    return src('app/scss/style.scss')
+    return src('app/scss/*.scss')
     .pipe(scss({outputStyle: 'compressed'}))
-    .pipe (concat('style.min.css'))
+    .pipe(rename({
+        suffix: '.min'
+    }))
+
     .pipe(autoprefixer({
         overrideBrowserslist: ['last 10 versions'],
         grid:true
@@ -58,6 +72,8 @@ function scripts() {
         'node_modules/slick-carousel/slick/slick.js',
         'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
         'node_modules/rateyo/src/jquery.rateyo.js',
+        'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+        'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
         'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
@@ -66,16 +82,18 @@ function scripts() {
     .pipe(browserSync.stream())
 }
 function watching (){
-    watch(['app/scss/**/*.scss'], styles);
-    watch(['app/js/**/*.js','!app/js/main.min.js'], scripts);
+    watch(['app/**/*.scss'], styles);
+    watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+    watch(['app/*.njk'], nunjucks);
     watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.nunjucks = nunjucks;
 exports.browsersync = browsersync;
 exports.watching = watching;
 exports.images = images;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build)
-exports.default = parallel(styles, scripts, browsersync, watching); 
+exports.default = parallel(styles,nunjucks, scripts, browsersync, watching); 
