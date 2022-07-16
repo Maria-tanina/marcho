@@ -133,3 +133,24 @@ a {
         
     }
 }
+
+@media(max-width:1200px) {
+    .title {
+        font-size: 50px;
+        line-height: 60px;
+    }
+}
+
+@media(max-width:860px) {
+    .title {
+        font-size: 35px;
+        line-height: 40px;
+    }
+}
+
+@media(max-width:500px) {
+    .title {
+        font-size: 25px;
+        line-height: 35px;
+    }
+}

@@ -50,3 +50,38 @@
     }
 
 }
+@media(max-width: 860px) {
+    .popup-fashion {
+        &__inner {
+            display: block;
+        }
+        &__video {
+            max-width: 100%;
+        }
+        &__content {
+            max-width: 100%;
+        }
+        &__subtitle {
+            padding-top: 15px;
+        }
+    }
+}
+
+@media(max-width: 860px) {
+    .popup-fashion {
+        &__video {
+            background-position: right top;
+        }
+    }
+}
+@media(max-width: 500px) {
+    .popup-fashion {
+       padding: 60px 0;
+       &__video {
+        height: 400px;
+    }
+    &__title {
+        margin-bottom: 20px;
+    }
+    }
+}

@@ -45,6 +45,9 @@
     &__filters {
         margin-right: 30px;
     }
+    &__filter-btn {
+        display: none;
+    }
 
     .filter {
         &__item {
@@ -399,7 +402,7 @@
 
 .jq-selectbox__trigger-arrow {
     position: absolute;
-    top: 8px;
+    top: 14px;
     right: 12px;
     width: 10px;
     height: 5px;
@@ -1346,6 +1349,7 @@
         }
     }
     &__item--location {
+        max-width: 340px;
         &::after {
             background-image: url(../images/icons/location-icon.svg);
             width: 14px;

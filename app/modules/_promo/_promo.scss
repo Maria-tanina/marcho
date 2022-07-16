@@ -63,3 +63,56 @@
     color: $paragraf;
     line-height: 26px;
 }
+
+
+
+@media(max-width:1200px) {
+    .promo {
+        background-position: center left;
+        padding: 100px 0 100px;
+    }
+}
+
+@media(max-width:950px) {
+    .promo {
+        background-image: none;
+        background-color: #f6f6f6;
+        &__inner {
+            width: 100%;
+        }
+        &__clock {
+            justify-content: center;
+        }
+        &__clock-item {
+            margin: 10px;
+        }
+
+    }
+}
+
+@media(max-width:600px) {
+    .promo {
+        &__clock {
+            flex-wrap: wrap;
+        }
+        &__clock-item {
+            margin: 20px 35px;
+        }
+        
+
+    }
+}
+
+@media(max-width:440px) {
+    .promo {
+        
+        &__clock-item {
+            margin: 8px 8px;
+        }
+        &__link {
+            margin-top: 30px;
+        }
+        
+
+    }
+}

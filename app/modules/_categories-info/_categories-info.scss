@@ -132,3 +132,114 @@
         @extend %roboto-400;
     }
 }
+
+@media(max-width:1200px) {
+    .info {
+        &__item {
+            width: 340px;
+            padding: 20px;
+        }
+    }
+}
+@media(max-width:1215px) {
+    .info {
+        &:after {
+            right: 4px;
+        }
+    }
+}
+@media(max-width:1100px) {
+    .info {
+        display: block;
+        &__item {
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+    .categories {
+        &__items {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        .categories__item:nth-child(1) {
+            grid-row: span 1;
+        }
+        .categories__item:nth-child(2) {
+            grid-column: span 1;
+            background-position: center right;
+        }
+        &__item {
+            background-position: center top;
+        }
+    }
+}
+@media(max-width:760px) {
+    .categories {
+        &__item {
+            padding-top: 110px;
+            padding-left: 10px;
+        }
+        &__item {
+            background-position: center right;
+            &:nth-child(1) {
+                background-position: center top;
+            }
+        }
+    }
+
+}
+@media(max-width:500px) {
+    .info {
+        display: block;
+        &__item {
+            width: 100%;
+        }
+        &__title{
+            margin: 30px 0 15px;
+            font-size: 20px;
+        }
+    }
+    .categories {
+        padding: 60px 0 60px;
+    }
+}
+@media(max-width:400px) {
+    .categories {
+        &-info {
+            padding: 60px 0;
+        }
+        &__items {
+            min-height: 570px;
+        }
+        &__item {
+            
+            background-image: none !important;
+            &:nth-child(1) {
+                background-color: #f4dff0 ;
+            }
+            &:nth-child(2) {
+                background-color:#d7eff1 ;                                  
+            }
+            &:nth-child(3) {
+                background-color: #fff7a6;
+            }
+            &:nth-child(4) {
+                background-color: #ededed;
+            }
+        }
+}
+}
+@media(max-width:375px){
+    .categories {
+        &__items {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &__item {
+            padding: 15px 10px;
+            &:nth-child(2) {
+                padding-top: 15px;
+            }
+            
+        }
+}
+}
